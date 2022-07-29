@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/index.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar navbar-expand-sm navbar-light bg-light shadow-sm align-items-stretch"
+    style="font-size: small; padding: 0 .5rem">
+    <a class="navbar-brand" href="/">
+      <img src="/img/logo-small.svg" alt="evn-hanoi-logobrand" width="130px" height="49px">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav w-100 justify-content-around align-items-center">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Theo dõi điện</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#PhanHoi">Phản hồi ý kiến</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#ThongBao">Thông báo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+            <!-- <img src="/img/ic_Search.svg" alt="search_icon"> -->
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fa-regular fa-bell fa-xl"></i>
+            <!-- <img src="/img/bell.svg" alt="notif_icon"> -->
+            <span class="badge-danger navbar-badge"></span>
+          </a>
+        </li>
+        <li class="nav-item user-menu">
+          <a class="nav-link" href="#">
+            <img class="user-img img-circle" src="/img/Profile.jpg" alt="user-avatar">
+            <span class="d-none d-md-inline-block" id="user_info" style="font-size: smaller; max-width: 125px;"></span>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </header>
+  <!-- //Navbar -->
+
+  <!-- Main Content -->
+  <div class="container mt-5">
+    <!-- Beginning -->
+    <div class="row justify-content-between">
+      <div class="col-sm-6">
+        <p class="welcome_user">
+          Xin chào <span id="username"></span>,<span style="color: #164399;"></span>
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <i class="fa-solid fa-gear fa-xl float-right" id="settingBtn" style="cursor: pointer;"></i>
+      </div>
+    </div>
+    <!-- //Begining -->
+    <!-- Summary Card -->
+    <div class="row justify-content-between" style="margin-top: 8rem;">
+      <div class="col-sm-8">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title" style="font-size: 14px;">Chỉ số điện năng💡</h5>
+            <p class="card-subtitle mt-3 summary_text"></p>
+            <h6 class="card-text">
+              <i class="fa-regular fa-clock"></i> Đo tại thời điểm: <span id="time"></span>
+            </h6>
+            <!-- Biểu giá -->
+            <div class="tariff_list_container d-flex justify-content-evenly mt-5" style="height: 10rem">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //Summary Card -->
+  </div>
+
+  <!-- //Main Content -->
+
+  <!-- Scripts -->
+  <script src="/jq/jquery.min.js"></script>
+  <script src="/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/js/demo.js"></script>
+  <script src="https://kit.fontawesome.com/9dee445d76.js" crossorigin="anonymous"></script>
+  <!-- <script type="module" src="./main.js"></script> -->
+</body>
+
+</html>
