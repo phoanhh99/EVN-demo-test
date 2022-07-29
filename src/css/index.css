@@ -66,7 +66,7 @@ body {
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
-  font-size: 40px;
+  font-size: 56px;
 
   /* identical to box height, or 114% */
   letter-spacing: -1px;
@@ -78,4 +78,49 @@ body {
   /* Color/Dark - Grey - Neutral/Grey/Grey 1 */
   border: 1px solid #e4e4e4;
   border-radius: 16px;
+}
+
+.chart_card {
+  background: linear-gradient(180deg, #e4353a 0%, #254291 100%);
+  border-radius: 24px;
+}
+
+.custom_shadow {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.chart-section {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 0.5rem 1.5rem;
+}
+
+.price {
+  font-weight: 500;
+  font-size: 25px;
+  letter-spacing: -0.5px;
+}
+
+.price_note {
+  font-weight: 600;
+  font-size: 14px;
+  color: #7fba7a;
+}
+
+#cogMenu {
+  padding: 0;
+}
+
+#cogMenu .dropdown-item {
+  padding: 1.25rem 2.5rem 1.25rem 1.5rem;
+}
+#cogMenu .dropdown-item:hover {
+  background: #164399;
+}
+#cogMenu .dropdown-item:first-of-type {
+  border-radius: 12px 12px 0 0;
+}
+#cogMenu .dropdown-item:last-of-type {
+  border-radius: 0 0 12px 12px;
 }
