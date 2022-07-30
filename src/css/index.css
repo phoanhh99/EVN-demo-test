@@ -26,6 +26,7 @@ body {
   height: 12px;
   border-radius: 50%;
 }
+
 .active {
   border-bottom: 2px solid #e4353a;
 }
@@ -117,6 +118,7 @@ body {
 }
 #cogMenu .dropdown-item:hover {
   background: #164399;
+  color: #ffffff;
 }
 #cogMenu .dropdown-item:first-of-type {
   border-radius: 12px 12px 0 0;
