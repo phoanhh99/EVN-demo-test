@@ -1,42 +1,17 @@
 const express = require('express')
 const app = express()
 const path = require('path')
-const moment = require('moment')
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/src/views/index.html'))
 })
-app.use(
-  '/jq',
-  express.static(path.join(__dirname, '/node_modules/jquery/dist'))
-)
-app.use(
-  '/bootstrap',
-  express.static(path.join(__dirname, '/node_modules/bootstrap/dist'))
-)
-app.use(
-  '/fontawesome',
-  express.static(path.join(__dirname, '/node_modules/@fortawesome'))
-)
-app.use(
-  '/moment',
-  express.static(path.join(__dirname, '/node_modules/moment/dist'))
-)
 
-app.use(
-  '/chart',
-  express.static(path.join(__dirname, '/node_modules/chart.js/dist'))
-)
-
-app.use('/js', express.static(path.join(__dirname, '/src/js')))
-app.use('/css', express.static(path.join(__dirname, '/src/css')))
-app.use('/img', express.static(path.join(__dirname, '/src/img')))
+// app.use('/js', express.static(path.join(__dirname, '/src/js')))
+// app.use('/css', express.static(path.join(__dirname, '/src/css')))
+// app.use('/img', express.static(path.join(__dirname, '/src/img')))
+app.use('/dist', express.static(path.join(__dirname, '/dist')))
 
 const FIXED_TIME = '13/09/2021 17:00'
-
-const NEXT_MONTH = moment(FIXED_TIME, 'DD/MM/YYYY HH:mm', 'vi')
-  .add('1', 'month')
-  .format('MMMM')
 
 const FIXED_USERACCOUNT = {
   fullname: 'Nguyễn Văn A',
@@ -53,7 +28,7 @@ app.get('/GetUser', (req, res) => {
   res.send(FIXED_USERACCOUNT)
 })
 app.get('/GetTime', (req, res) => {
-  res.send({FIXED_TIME, NEXT_MONTH})
+  res.send({FIXED_TIME})
 })
 app.get('/GetThongSo', (req, res) => {
   res.send(JSON.stringify(TARIFF_LIST))

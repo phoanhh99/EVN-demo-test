@@ -1,3 +1,65 @@
+import jQuery from 'jquery'
+window.$ = window.jQuery = jQuery
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '/src/css/index.css'
+import logoSmall from '../img/logo-small.svg'
+import profilePicture from '../img/Profile.jpg'
+import {
+  Chart,
+  ArcElement,
+  LineElement,
+  BarElement,
+  PointElement,
+  BarController,
+  BubbleController,
+  DoughnutController,
+  LineController,
+  PieController,
+  PolarAreaController,
+  RadarController,
+  ScatterController,
+  CategoryScale,
+  LinearScale,
+  LogarithmicScale,
+  RadialLinearScale,
+  TimeScale,
+  TimeSeriesScale,
+  Decimation,
+  Filler,
+  Legend,
+  Title,
+  Tooltip,
+  SubTitle,
+} from 'chart.js'
+import moment from 'moment'
+
+Chart.register(
+  ArcElement,
+  LineElement,
+  BarElement,
+  PointElement,
+  BarController,
+  BubbleController,
+  DoughnutController,
+  LineController,
+  PieController,
+  PolarAreaController,
+  RadarController,
+  ScatterController,
+  CategoryScale,
+  LinearScale,
+  LogarithmicScale,
+  RadialLinearScale,
+  TimeScale,
+  TimeSeriesScale,
+  Decimation,
+  Filler,
+  Legend,
+  Title,
+  Tooltip,
+  SubTitle
+)
 $(() => {
   //for demo test purposes
   $('#settingBtn').on('click', () =>
@@ -5,6 +67,7 @@ $(() => {
       offset: 2,
     })
   )
+  $('#logoBrand').attr('src', logoSmall)
   FillUserInfo()
   FillDetail()
   InitChart()
@@ -23,12 +86,17 @@ $(() => {
     $('#user_info')
       .empty()
       .append(`${fullname}<br><span class="text-muted">${uid}</span>`)
+
+    $('.user-img').attr('src', profilePicture)
   }
 
   function FillDetail() {
     $.when($.get('/GetTime'), $.get('/GetThongSo')).then((data1, data2) => {
-      const {FIXED_TIME, NEXT_MONTH} = data1[0]
+      const {FIXED_TIME} = data1[0]
       const TARIFF_LIST = JSON.parse(data2[0])
+      const NEXT_MONTH = moment(FIXED_TIME, 'DD/MM/YYYY HH:mm', 'vi')
+        .add('1', 'month')
+        .format('MMMM')
 
       const FIXED_PARAMETER = TARIFF_LIST.map(v =>
         parseFloat(v.value.replace(',', ''))
