@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/index.css">
+  <link href="https://rawcdn.githack.com/hung1001/font-awesome-pro/4cac1a6/css/all.css" rel="stylesheet"
+    type="text/css" />
   <title>Document</title>
 </head>
 
@@ -15,7 +15,7 @@
   <header class="navbar navbar-expand-sm navbar-light bg-light shadow-sm align-items-stretch"
     style="font-size: small; padding: 0 .5rem">
     <a class="navbar-brand" href="/">
-      <img src="/img/logo-small.svg" alt="evn-hanoi-logobrand" width="130px" height="49px">
+      <img id="logoBrand" src="" alt="evn-hanoi-logobrand" width="130px" height="49px">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,67 +23,114 @@
     </button>
 
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
-      <ul class="navbar-nav w-100 justify-content-around align-items-center">
-        <li class="nav-item active">
+      <ul class="navbar-nav align-items-center ml-auto mr-auto">
+        <li class="nav-item mx-lg-3 py-1 active">
           <a class="nav-link" href="/">Theo dõi điện</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-lg-3 py-1">
           <a class="nav-link" href="#PhanHoi">Phản hồi ý kiến</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mx-lg-3 py-1">
           <a class="nav-link" href="#ThongBao">Thông báo</a>
         </li>
+      </ul>
+      <ul class="navbar-nav align-items-center ml-auto mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
-            <!-- <img src="/img/ic_Search.svg" alt="search_icon"> -->
+            <i class="fal fa-search fa-lg"></i>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <i class="fa-regular fa-bell fa-xl"></i>
-            <!-- <img src="/img/bell.svg" alt="notif_icon"> -->
+            <i class="fal fa-bell fa-lg"></i>
             <span class="badge-danger navbar-badge"></span>
           </a>
         </li>
         <li class="nav-item user-menu">
           <a class="nav-link" href="#">
-            <img class="user-img img-circle" src="/img/Profile.jpg" alt="user-avatar">
+            <img class="user-img img-circle" src="" alt="user-avatar">
             <span class="d-none d-md-inline-block" id="user_info" style="font-size: smaller; max-width: 125px;"></span>
           </a>
         </li>
       </ul>
-
     </div>
   </header>
   <!-- //Navbar -->
 
   <!-- Main Content -->
-  <div class="container mt-5">
+  <div class="container-md mt-5">
     <!-- Beginning -->
     <div class="row justify-content-between">
-      <div class="col-sm-6">
+      <div class="col-md-6">
         <p class="welcome_user">
           Xin chào <span id="username"></span>,<span style="color: #164399;"></span>
         </p>
       </div>
-      <div class="col-sm-4">
-        <i class="fa-solid fa-gear fa-xl float-right" id="settingBtn" style="cursor: pointer;"></i>
+      <div class="col-md-4">
+        <i class="fal fa-cog fa-2x float-right" id="settingBtn" type="button" data-toggle="dropdown"
+          aria-expanded="false" style="cursor: pointer;"></i>
+        <div class="dropdown-menu custom_shadow dropdown-menu-right" id="cogMenu"
+          style="border-radius: 1.25rem; width: 312px">
+          <a class="dropdown-item" href="#HieuChinhTgian">
+            <span class="fa-stack">
+              <i class="fal fa-cog fa-stack-2x"></i>
+              <i class="fas fa-clock fa-stack-1x"></i>
+            </span>
+            Hiệu Chỉnh thời gian
+          </a>
+          <a class="dropdown-item" href="#ThongBaoSuCo">
+            <span class="fa-stack">
+              <i class="far fa-triangle fa-stack-2x"></i>
+              <i class="fas fa-bolt fa-stack-1x mt-1"></i>
+            </span>
+            Thông báo sự cố
+          </a>
+          <a class="dropdown-item" href="#ThacMacVeTienDien">
+            <i class="fas fa-question"></i>
+            <i class="fas fa-money-bill-wave"></i>
+            Thắc mắc về tiền điện
+          </a>
+        </div>
+
       </div>
     </div>
     <!-- //Begining -->
     <!-- Summary Card -->
     <div class="row justify-content-between" style="margin-top: 8rem;">
-      <div class="col-sm-8">
-        <div class="card shadow-sm">
+      <div class="col-lg-8">
+        <div class="card custom_shadow">
           <div class="card-body">
             <h5 class="card-title" style="font-size: 14px;">Chỉ số điện năng💡</h5>
             <p class="card-subtitle mt-3 summary_text"></p>
             <h6 class="card-text">
-              <i class="fa-regular fa-clock"></i> Đo tại thời điểm: <span id="time"></span>
+              <i class="fal fa-clock"></i> Đo tại thời điểm: <span id="time"></span>
             </h6>
             <!-- Biểu giá -->
-            <div class="tariff_list_container d-flex justify-content-evenly mt-5" style="height: 10rem">
+            <div class="container mt-5">
+              <div class="tariff_list_container row"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card shadow-sm chart_card h-100 ">
+          <div class="card-header" style="background-color: unset; border-bottom: unset;">
+            <p class="card-title text-light text-center">
+              Tiền điện tạm tính <span id="month"></span>
+            </p>
+          </div>
+          <div class="card-body" style="padding: 6px">
+            <div class="chart-section h-100 d-flex flex-column justify-content-between">
+              <div class="chart-summary d-flex flex-column">
+                <span class="text-muted" style="font-size: 12px;">
+                  Cập nhật 1 ngày trước
+                </span>
+                <span class="price">240.830 VNĐ</span>
+                <span class="price_note">Tương đương 124.0 kWh</span>
+              </div>
+              <div class="chart-container flex-grow-1">
+                <canvas id="chart-detail"></canvas>
+              </div>
             </div>
           </div>
         </div>
@@ -91,15 +138,14 @@
     </div>
     <!-- //Summary Card -->
   </div>
-
   <!-- //Main Content -->
 
   <!-- Scripts -->
-  <script src="/jq/jquery.min.js"></script>
-  <script src="/bootstrap/js/bootstrap.min.js"></script>
-  <script src="/js/demo.js"></script>
-  <script src="https://kit.fontawesome.com/9dee445d76.js" crossorigin="anonymous"></script>
-  <!-- <script type="module" src="./main.js"></script> -->
+  <!-- <script src="/jq/jquery.min.js"></script>
+  <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/chart/chart.min.js"></script>
+  <script src="/js/demo.js"></script> -->
+  <script src="/dist/demo.bundle.js"></script>
 </body>
 
 </html>
